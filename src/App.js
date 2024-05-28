@@ -5,7 +5,10 @@ function App() {
   return (
     <MainContainer className="App">
       <ContentContainer>
-        <WhiteImageContainer src="/logo/hgs white logo.svg" alt="" />
+        <WhiteImageContainer
+          src={process.env.PUBLIC_URL + "/logo/hgs white logo.svg"}
+          alt=""
+        />
         <CategoryContainer>
           <Category />
         </CategoryContainer>
@@ -18,7 +21,7 @@ export default App;
 
 const MainContainer = styled.div`
   position: absolute;
-  background-image: url("/GIF/BG.gif");
+  background-image: url(${process.env.PUBLIC_URL + "/GIF/BG.gif"});
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -39,7 +42,7 @@ const ContentContainer = styled.div`
 `;
 
 const WhiteImageContainer = styled.img`
-  height: 300px;
+  height: 220px;
   width: 600px;
 `;
 
