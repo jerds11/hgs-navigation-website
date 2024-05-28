@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/hgs-navigation-website/static/css/main.20f96ec3.css",
-    "main.js": "/hgs-navigation-website/static/js/main.1321fdcc.js",
+    "main.js": "/hgs-navigation-website/static/js/main.abc6084f.js",
     "index.html": "/hgs-navigation-website/index.html",
     "main.20f96ec3.css.map": "/hgs-navigation-website/static/css/main.20f96ec3.css.map",
-    "main.1321fdcc.js.map": "/hgs-navigation-website/static/js/main.1321fdcc.js.map"
+    "main.abc6084f.js.map": "/hgs-navigation-website/static/js/main.abc6084f.js.map"
   },
   "entrypoints": [
     "static/css/main.20f96ec3.css",
-    "static/js/main.1321fdcc.js"
+    "static/js/main.abc6084f.js"
   ]
 }
