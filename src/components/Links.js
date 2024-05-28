@@ -1,1 +1,9 @@
-const links = [];
+const links = [
+  {
+    title: "Digital Transformation",
+  },
+  {
+    title: "Automation",
+  },
+  {},
+];
