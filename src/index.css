@@ -1,3 +1,16 @@
+:root {
+  --shadow: 0 2px 6px rgb(118, 118, 118);
+  --light-color: rgb(216, 216, 216);
+  --dark-color: rgb(38, 38, 38);
+  --light-shadow: 0 2px 6px var(--light-color);
+  --dark-shadow: 0 2px 6px var(--dark-color);
+
+  --blue-color: rgb(112, 148, 204);
+  --red-color: rgb(204, 112, 140);
+  --gray-color: rgb(128, 128, 128);
+  --black-color: rgb(0, 0, 0);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +19,16 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+.light-shadow {
+  box-shadow: var(--light-shadow);
+}
+
+.dark-shadow {
+  box-shadow: var(--dark-shadow);
 }

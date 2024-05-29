@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Category from "./components/Category";
+import { links } from "./components/Links";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
           alt=""
         />
         <CategoryContainer>
-          <Category />
+          {links.map((link, index) => {
+            return <Category key={index} title={link.title} icon={link.icon} />;
+          })}
         </CategoryContainer>
       </ContentContainer>
     </MainContainer>
@@ -42,7 +45,7 @@ const ContentContainer = styled.div`
 `;
 
 const WhiteImageContainer = styled.img`
-  height: 220px;
+  height: 150px;
   width: 600px;
 `;
 
@@ -51,4 +54,5 @@ const CategoryContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 `;
