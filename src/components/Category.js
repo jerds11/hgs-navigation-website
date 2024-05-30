@@ -36,7 +36,6 @@ const IconContainer = styled.img`
 `;
 
 const ButtonContainer = styled.div``;
-tart;
 
 const CardTitleContainer = styled.div``;
 
