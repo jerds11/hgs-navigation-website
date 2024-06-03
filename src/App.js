@@ -12,9 +12,17 @@ function App() {
         />
         <CategoryContainer>
           {links.map((link, index) => {
-            return <Category key={index} title={link.title} icon={link.icon} />;
+            return (
+              <Category
+                key={index}
+                title={link.title}
+                icon={link.icon}
+                play={link.play}
+              />
+            );
           })}
         </CategoryContainer>
+        {/* <button>See All</button> */}
       </ContentContainer>
     </MainContainer>
   );
@@ -45,14 +53,14 @@ const ContentContainer = styled.div`
 `;
 
 const WhiteImageContainer = styled.img`
-  height: 150px;
-  width: 600px;
+  height: 110px;
 `;
 
 const CategoryContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin: 30px 0;
 `;
