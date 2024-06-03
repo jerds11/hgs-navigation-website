@@ -32,6 +32,7 @@ const CardContainer = styled.div`
 
 const ButtonAndIconContainer = styled.div`
   position: relative;
+  background-color: #dedede;
 `;
 
 const IconContainer = styled.img`
@@ -51,6 +52,13 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    img {
+      display: inline;
+    }
+  }
 `;
 
 const CardTitleContainer = styled.div`
@@ -62,14 +70,7 @@ const CardTitle = styled.h5`
 `;
 
 const IconContainer2 = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  padding: 10px;
-  background-color: rgba(150, 150, 150, 0.5);
-  cursor: pointer;
-  transition: all 1000ms;
-  &:hover {
-    background-color: rgba(150, 150, 150, 0.9);
-  }
+  display: none;
+  width: 100px;
+  height: 100px;
 `;

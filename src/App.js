@@ -1,30 +1,60 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Category from "./components/Category";
 import { links } from "./components/Links";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import Modal from "./components/Modal";
 
 function App() {
+  const [showAllButton, setShowAllButton] = useState(false);
+
+  const handleShowButton = () => {
+    setShowAllButton(!showAllButton);
+  };
+
   return (
-    <MainContainer className="App">
-      <ContentContainer>
-        <WhiteImageContainer
-          src={process.env.PUBLIC_URL + "/logo/hgs white logo.svg"}
-          alt=""
-        />
-        <CategoryContainer>
-          {links.map((link, index) => {
-            return (
-              <Category
-                key={index}
-                title={link.title}
-                icon={link.icon}
-                play={link.play}
-              />
-            );
-          })}
-        </CategoryContainer>
-        {/* <button>See All</button> */}
-      </ContentContainer>
-    </MainContainer>
+    <>
+      <MainContainer className="App">
+        <ContentContainer>
+          <WhiteImageContainer
+            src={process.env.PUBLIC_URL + "/logo/hgs white logo.svg"}
+            alt=""
+          />
+          {/* <Modal /> */}
+          <CategoryContainer showAllButton={showAllButton}>
+            {!showAllButton
+              ? links.map((link, index) => {
+                  if (index < 6) {
+                    return (
+                      <Category
+                        key={index}
+                        title={link.title}
+                        icon={link.icon}
+                        play={link.play}
+                      />
+                    );
+                  }
+                })
+              : links.map((link, index) => {
+                  return (
+                    <Category
+                      key={index}
+                      title={link.title}
+                      icon={link.icon}
+                      play={link.play}
+                    />
+                  );
+                })}
+          </CategoryContainer>
+
+          {showAllButton ? (
+            <UpButton size={50} onClick={handleShowButton} className="jump" />
+          ) : (
+            <DownButton size={50} onClick={handleShowButton} className="jump" />
+          )}
+        </ContentContainer>
+      </MainContainer>
+    </>
   );
 }
 
@@ -53,14 +83,44 @@ const ContentContainer = styled.div`
 `;
 
 const WhiteImageContainer = styled.img`
-  height: 110px;
+  height: 90px;
 `;
 
 const CategoryContainer = styled.div`
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: ${(props) => (props.showAllButton ? "normal" : "center")};
   margin: 30px 0;
+  height: ${(props) => (props.showAllButton ? "540px" : "200px")};
+  transition: height 0.3s ease;
+  overflow: ${(props) => (props.showAllButton ? "auto" : "hidden")};
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #999999;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #666666;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+  }
+`;
+
+const DownButton = styled(MdKeyboardArrowDown)`
+  color: white;
+  cursor: pointer;
+`;
+
+const UpButton = styled(MdKeyboardArrowUp)`
+  color: white;
+  cursor: pointer;
 `;
