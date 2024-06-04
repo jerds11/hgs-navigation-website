@@ -8,19 +8,31 @@ import Modal from "./components/Modal";
 function App() {
   const [showAllButton, setShowAllButton] = useState(false);
 
+  const [showModal, setShowModal] = useState(false);
+  const [videoLink, setVideoLink] = useState("");
+
   const handleShowButton = () => {
     setShowAllButton(!showAllButton);
   };
 
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+    console.log("clicked");
+  };
+
   return (
     <>
-      <MainContainer className="App">
+      <MainContainer>
         <ContentContainer>
           <WhiteImageContainer
             src={process.env.PUBLIC_URL + "/logo/hgs white logo.svg"}
             alt=""
           />
-          {/* <Modal /> */}
+
+          {showModal && (
+            <Modal videoLink={videoLink} modal={() => handleShowModal()} />
+          )}
+
           <CategoryContainer showAllButton={showAllButton}>
             {!showAllButton
               ? links.map((link, index) => {
@@ -31,9 +43,15 @@ function App() {
                         title={link.title}
                         icon={link.icon}
                         play={link.play}
+                        clicked={() => {
+                          handleShowModal();
+                          setVideoLink(link.link);
+                        }}
+                        modal={() => handleShowModal()}
                       />
                     );
                   }
+                  return false;
                 })
               : links.map((link, index) => {
                   return (
@@ -42,6 +60,11 @@ function App() {
                       title={link.title}
                       icon={link.icon}
                       play={link.play}
+                      clicked={() => {
+                        handleShowModal();
+                        setVideoLink(link.link);
+                      }}
+                      modal={() => handleShowModal()}
                     />
                   );
                 })}
@@ -84,6 +107,18 @@ const ContentContainer = styled.div`
 
 const WhiteImageContainer = styled.img`
   height: 90px;
+
+  @media screen and (max-width: 900px) {
+    & {
+      height: 70px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    & {
+      height: 50px;
+    }
+  }
 `;
 
 const CategoryContainer = styled.div`
@@ -94,7 +129,7 @@ const CategoryContainer = styled.div`
   align-items: ${(props) => (props.showAllButton ? "normal" : "center")};
   margin: 30px 0;
   height: ${(props) => (props.showAllButton ? "540px" : "200px")};
-  transition: height 0.3s ease;
+  transition: height 0.7s ease;
   overflow: ${(props) => (props.showAllButton ? "auto" : "hidden")};
 
   &::-webkit-scrollbar {

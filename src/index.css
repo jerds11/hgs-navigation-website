@@ -5,9 +5,9 @@
   --light-shadow: 0 2px 6px var(--light-color);
   --dark-shadow: 0 2px 6px var(--dark-color);
 
-  --blue-color: rgb(112, 148, 204);
-  --red-color: rgb(204, 112, 140);
-  --gray-color: rgb(128, 128, 128);
+  --blue-color: rgb(78, 136, 231);
+  --red-color: rgb(235, 38, 97);
+  --gray-color: rgb(139, 139, 139);
   --black-color: rgb(0, 0, 0);
 }
 
@@ -53,4 +53,52 @@
 
 .jump {
   animation: animateDown infinite 1.5s;
+}
+
+.btn-success {
+  padding: 10px;
+  font-size: 16px;
+  background: var(--blue-color);
+  cursor: pointer;
+  color: rgb(203, 203, 203);
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+.btn-danger {
+  padding: 10px;
+  font-size: 16px;
+  background: var(--red-color);
+  cursor: pointer;
+  color: rgb(203, 203, 203);
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+.btn-pause {
+  padding: 10px;
+  font-size: 16px;
+  background: gray;
+  cursor: pointer;
+  color: rgb(203, 203, 203);
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+.btn-danger:hover {
+  color: black;
+}
+
+.btn-success:hover {
+  color: black;
+}
+
+.btn-pause:hover {
+  color: black;
 }

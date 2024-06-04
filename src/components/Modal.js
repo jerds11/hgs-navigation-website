@@ -1,35 +1,25 @@
 import styled from "styled-components";
 import { useRef, useState } from "react";
+import { GiPlayButton, GiPauseButton } from "react-icons/gi";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
-const Modal = () => {
+const Modal = (props) => {
   const videoRef = useRef(null);
-  const [useButtons, setUseButtons] = useState({
-    play: false,
-    pause: true,
-    stop: false,
-  });
+  const [videoStatus, setVideoStatus] = useState(false);
 
   const handlePlay = () => {
     if (videoRef.current) {
       videoRef.current.play();
     }
 
-    setUseButtons((prevState) => ({
-      ...prevState,
-      play: !prevState.play,
-      pause: !prevState.pause,
-    }));
+    setVideoStatus(!videoStatus);
   };
 
   const handlePause = () => {
     if (videoRef.current) {
       videoRef.current.pause();
     }
-    setUseButtons((prevState) => ({
-      ...prevState,
-      play: !prevState.play,
-      pause: !prevState.pause,
-    }));
+    setVideoStatus(!videoStatus);
   };
 
   const handleStop = () => {
@@ -37,30 +27,33 @@ const Modal = () => {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
-    setUseButtons((prevState) => ({
-      ...prevState,
-      stop: !prevState.stop,
-    }));
   };
 
   return (
     <ModalContainer>
       <MainContentContainer>
-        <video ref={videoRef}>
-          <source
-            src={process.env.PUBLIC_URL + "/videos/v1.mp4"}
-            type="video/mp4"
-          />
+        <video ref={videoRef} className="shadow">
+          <source src={props.videoLink} type="video/mp4" />
         </video>
         <ButtonContainer>
-          <button onClick={handlePlay} disabled={useButtons.play}>
-            Play
-          </button>
-          <button onClick={handlePause} disabled={useButtons.pause}>
-            Pause
-          </button>
-          <button onClick={handleStop} disabled={useButtons.stop}>
-            Stop
+          {videoStatus ? (
+            <button onClick={handlePause} className="btn-pause">
+              <GiPauseButton />
+            </button>
+          ) : (
+            <button onClick={handlePlay} className="btn-success">
+              <GiPlayButton />
+            </button>
+          )}
+
+          <button
+            onClick={() => {
+              handleStop();
+              props.modal();
+            }}
+            className="btn-danger"
+          >
+            <IoMdCloseCircleOutline />
           </button>
         </ButtonContainer>
       </MainContentContainer>
@@ -73,7 +66,7 @@ export default Modal;
 const ModalContainer = styled.div`
   position: absolute;
   z-index: 10;
-  background-color: rgb(128, 128, 128, 0.5);
+  background-color: rgb(0, 0, 0, 0.8);
   width: 100%;
   height: 100%;
   display: flex;
@@ -93,7 +86,10 @@ const ButtonContainer = styled.div`
   justify-content: space-evenly;
   margin: 20px 0;
   button {
-    padding: 10px 25px;
+    padding: 4px 40px;
     cursor: pointer;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
   }
 `;
