@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hgs-navigation-website/static/css/main.2e97226c.css",
-    "main.js": "/hgs-navigation-website/static/js/main.2feea15e.js",
+    "main.css": "/hgs-navigation-website/static/css/main.2cd4325e.css",
+    "main.js": "/hgs-navigation-website/static/js/main.4dc15395.js",
     "index.html": "/hgs-navigation-website/index.html",
-    "main.2e97226c.css.map": "/hgs-navigation-website/static/css/main.2e97226c.css.map",
-    "main.2feea15e.js.map": "/hgs-navigation-website/static/js/main.2feea15e.js.map"
+    "main.2cd4325e.css.map": "/hgs-navigation-website/static/css/main.2cd4325e.css.map",
+    "main.4dc15395.js.map": "/hgs-navigation-website/static/js/main.4dc15395.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e97226c.css",
-    "static/js/main.2feea15e.js"
+    "static/css/main.2cd4325e.css",
+    "static/js/main.4dc15395.js"
   ]
 }
