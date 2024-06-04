@@ -3,7 +3,7 @@ import styled from "styled-components";
 function Category(props) {
   return (
     <>
-      <CardContainer onClick={props.clicked}>
+      <CardContainer onClick={props.clicked} className="shadow">
         <ButtonAndIconContainer>
           <IconContainer src={props.icon} />
           <ButtonContainer>
@@ -23,11 +23,10 @@ export default Category;
 const CardContainer = styled.div`
   width: 120px;
   height: 180px;
-  border-radius: 5px;
   margin: 10px;
   background-color: #1f2937;
+  border: 1px solid #dedede;
   position: relative;
-  border: 1px solid #dbdbdb;
 
   @media screen and (max-width: 900px) {
     & {
@@ -52,8 +51,6 @@ const ButtonAndIconContainer = styled.div`
 const IconContainer = styled.img`
   width: 100%;
   height: 100%;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
 `;
 
 const ButtonContainer = styled.div`
